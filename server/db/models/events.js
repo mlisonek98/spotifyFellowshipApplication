@@ -7,15 +7,11 @@ const Event = db.define('event', {
     allowNull: false
   },
   startTime: {
-    type: Sequelize.FLOAT,
+    type: Sequelize.STRING,
     allowNull: false
   },
   endTime: {
-    type: Sequelize.FLOAT,
-    allowNull: false
-  },
-  AMPM: {
-    type: Sequelize.ENUM('A.M.', 'P.M.'),
+    type: Sequelize.STRING,
     allowNull: false
   },
   description: {
