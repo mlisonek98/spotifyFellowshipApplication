@@ -25,9 +25,11 @@ router.put('/:id', async (req, res, next) => {
     const updatedEvent = await Event.update(req.body, {
       where: {
         id: req.params.id
-      }
+      },
+      returning: true
     })
-    res.status(202).json(updatedEvent)
+    console.log('UPDATED EVENT',updatedEvent)
+    res.status(202).json(updatedEvent[1][0])
   } catch(err) {
     next(err)
   }

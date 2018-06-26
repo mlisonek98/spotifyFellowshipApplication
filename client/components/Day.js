@@ -12,7 +12,16 @@ export class Day extends Component {
       <div className="singleDay">
         <h4>{this.props.number}</h4>
         <div>
-          <Link to={`/${this.props.month}/${this.props.number}`}>Click Here To See Events!</Link>
+        {
+          this.props.events.map((event) => (
+            <div key={event.id}>
+              <Link to={`/${event.month}/${event.day}/${event.id}`}>{event.name}</Link>
+            </div>
+          ))
+        }
+        <Link to={`/${this.props.month}/${this.props.number}/newEvent`}>
+          <button>+</button>
+        </Link>
         </div>
       </div>
     )

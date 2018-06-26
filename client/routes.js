@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {withRouter, Route, Switch, Redirect} from 'react-router-dom'
 import PropTypes from 'prop-types'
-import {Login, Signup, UserHome, Calendar, DaysEvents} from './components'
+import {Login, Signup, UserHome, Calendar, SingleEvent, NewEvent, EditEvent} from './components'
 import {me, fetchEvents} from './store'
 
 /**
@@ -22,7 +22,9 @@ class Routes extends Component {
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route exact path="/:month" component={Calendar} />
-        <Route exact path="/:month/:date" component={DaysEvents} />
+        <Route exact path="/:month/:day/newEvent" component={NewEvent} />
+        <Route exact path="/:month/:day/:id" component={SingleEvent} />
+        <Route exact path="/:month/:day/:id/editEvent" component={EditEvent} />
         <Redirect from="/" to="/July" />
         {isLoggedIn && (
           <Switch>

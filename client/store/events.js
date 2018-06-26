@@ -29,9 +29,10 @@ export default function reducer (events = [], action){
       return [...events, action.event]
 
     case EDIT_EVENT:
-      return events.map(event => (
-        action.event.id === event.id ? action.event : event
-      ));
+      return events.map(event => {
+        console.log('ACTION', action)
+        return action.event.id === event.id ? action.event : event
+      });
 
     case DELETE_EVENT:
       return events.filter(event => event.id !== action.id)
@@ -66,6 +67,7 @@ export const createNewEvent = (event) => async (dispatch) => {
 export const editCurrentEvent = (id, event) => async (dispatch) => {
   try {
     const editedEvent = await axios.put(`/api/events/${id}`, event)
+    console.log('IN THUNK', editedEvent)
     return dispatch(editEvent(editedEvent.data));
   }
   catch (err) {

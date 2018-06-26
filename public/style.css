@@ -10,3 +10,8 @@
 .singleDay {
   border: 2px solid black;
 }
+
+.weekday {
+  display: inline-grid;
+  grid-template-columns: 160px 160px 160px 160px 160px 160px 160px;
+}

@@ -83,7 +83,6 @@ describe('Event routes', () => {
         name: '1st Day',
         startTime: '8:00 A.M.',
         endTime: '2:30 P.M.',
-        AMPM: 'A.M.',
         description: 'Gotta go back to school',
         day: 4,
         month: 'September'
