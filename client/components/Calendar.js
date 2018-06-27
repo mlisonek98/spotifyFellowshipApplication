@@ -38,28 +38,34 @@ export class Calendar extends Component {
   render() {
     return(
       <div>
-        <div>
-          <button onClick={this.previousMonth}>Prev</button>
+        <div className="nav">
+          <button className="backbutton" type="submit" onClick={this.previousMonth}>
+            Previous Month
+          </button>
           <h1>{this.props.currentMonth}</h1>
-          <button onClick={this.nextMonth}>Next</button>
+          <button className="nextbutton" type="submit" onClick={this.nextMonth}>Next</button>
         </div>
-        <div className="weekday">
+        <div className="calendar">
+          <div className="weekday">
+            {
+              this.props.daysOfWeek[this.props.currentMonth].map((day) => (
+                <div key={day}>
+                  <h3>{day}</h3>
+                </div>
+              ))
+            }
+          </div>
+          <div className="day">
           {
-            this.props.daysOfWeek[this.props.currentMonth].map((day) => (
-              <div key={day}>
-                <h3>{day}</h3>
-              </div>
-            ))
+            this.props.months[this.props.currentMonth].map((day) => {
+              return <Day key={day} number={day} month={this.props.currentMonth} am={this.props.events.filter((event) => {
+                return (((event.month === this.props.currentMonth) && (event.day === day) && (event.startTime.includes('A.M.'))))
+              })} pm={this.props.events.filter((event) => {
+                return (((event.month === this.props.currentMonth) && (event.day === day) && (event.startTime.includes('P.M.'))))
+              })}/>
+            })
           }
-        </div>
-        <div className="day">
-        {
-          this.props.months[this.props.currentMonth].map((day) => {
-            return <Day  key={day} number={day} month={this.props.currentMonth} events={this.props.events.filter((event) => {
-              return (((event.month === this.props.currentMonth) && (event.day === day)))
-            })}/>
-          })
-        }
+          </div>
         </div>
       </div>
     )

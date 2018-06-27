@@ -6,7 +6,14 @@ export class EditEvent extends Component {
   constructor(props){
     super(props)
     this.submit = this.submit.bind(this)
+    this.back = this.back.bind(this)
   }
+
+  back(event) {
+    event.preventDefault()
+    this.props.history.push(`/${this.props.match.params.month}/${this.props.match.params.day}/${this.props.match.params.id}`)
+  }
+
 
   submit(event) {
     event.preventDefault();
@@ -25,14 +32,22 @@ export class EditEvent extends Component {
   render() {
     console.log(this.props)
     return (
-      <div>
-        <form onSubmit={this.submit}>
-        <div>
-          <label>Name</label>
-          <input name="name" type="text" />
+      <div className="form-wrapper">
+        <div className="otherheader">
+          <button onClick={this.back} type="submit">Back</button>
+          <div className="header">
+            <h1 className="month" >{this.props.match.params.month} {this.props.match.params.day}</h1>
+            <h3>Edit {this.props.event[0].name} Event Below</h3>
+          </div>
         </div>
-        <div>
-          <label>Start Time</label>
+        <form onSubmit={this.submit}>
+        <div className="inputs">
+          <label>Name</label>
+          <input className="name" name="name" type="text" />
+        </div>
+        <div className="inputs">
+          <div className="startend">
+            <label>Start Time</label>
           <div>
             <select name="startTime" type="text">
               {
@@ -47,9 +62,11 @@ export class EditEvent extends Component {
               <option>A.M.</option>
               <option>P.M.</option>
             </select>
+            </div>
           </div>
-          <div>
+          <div className="startend">
               <label>End Time</label>
+              <div>
               <select name="endTime" type="text">
               {
                 this.props.time.map((time) => {
@@ -63,13 +80,16 @@ export class EditEvent extends Component {
               <option>A.M.</option>
               <option>P.M.</option>
             </select>
+            </div>
+            </div>
           </div>
           <div>
+            <div className="inputs">
               <label>Description</label>
-              <textarea name="description" type="text"/>
+              <textarea className="desc"  name="description" type="text"/>
           </div>
         </div>
-        <div>
+        <div className="startend">
           <button type="submit">Submit</button>
         </div>
         </form>
@@ -78,8 +98,7 @@ export class EditEvent extends Component {
   }
 }
 
-const mapState = (ownProps) => {
-  console.log(ownProps)
+const mapState = ( {events}, ownProps) => {
   return {
     time: [
       '12:00',
@@ -130,12 +149,15 @@ const mapState = (ownProps) => {
       '11:15',
       '11:30',
       '11:45',
-    ]
+    ],
+    events,
+    event: events.filter((event) => {
+      return ((event.id + '') === ownProps.match.params.id)
+    })
   }
 }
 const mapDispatch = dispatch => ({
   submitForm(id, event){
-
     dispatch(editCurrentEvent(id, event))
   }
 });

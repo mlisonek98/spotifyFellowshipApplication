@@ -6,6 +6,12 @@ export class NewEvent extends Component {
   constructor(props){
     super(props)
     this.submit = this.submit.bind(this)
+    this.back = this.back.bind(this)
+  }
+
+  back(event) {
+    event.preventDefault()
+    this.props.history.push(`/${this.props.match.params.month}`)
   }
 
   submit(event) {
@@ -25,32 +31,42 @@ export class NewEvent extends Component {
   render() {
     console.log(this.props)
     return (
-      <div>
-        <form onSubmit={this.submit}>
-        <div>
-          <label>Name</label>
-          <input name="name" type="text" />
-        </div>
-        <div>
-          <label>Start Time</label>
-          <div>
-            <select name="startTime" type="text">
-              {
-                this.props.time.map((time) => {
-                  return (
-                    <option key={time}>{time}</option>
-                  )
-                })
-              }
-            </select>
-            <select name="startAMPM" type="text">
-              <option>A.M.</option>
-              <option>P.M.</option>
-            </select>
+      <div className="form-wrapper">
+        <div className="otherheader">
+          <button onClick={this.back} type="submit">Back</button>
+          <div className="header">
+            <h1 className="month" >{this.props.match.params.month} {this.props.match.params.day}</h1>
+            <h3>Create an Event Below</h3>
           </div>
+        </div>
+        <form onSubmit={this.submit}>
+        <div className="inputs">
+          <label>Name</label>
+          <input className="name" name="name" type="text" />
+        </div>
+        <div className="inputs">
+          <div className="startend">
+            <label>Start Time</label>
+            <div>
+              <select name="startTime" type="text">
+                {
+                  this.props.time.map((time) => {
+                    return (
+                      <option key={time}>{time}</option>
+                    )
+                  })
+                }
+              </select>
+                <select name="startAMPM" type="text">
+                  <option>A.M.</option>
+                  <option>P.M.</option>
+                </select>
+            </div>
+        </div>
+        <div className="startend">
+          <label>End Time</label>
           <div>
-              <label>End Time</label>
-              <select name="endTime" type="text">
+            <select name="endTime" type="text">
               {
                 this.props.time.map((time) => {
                   return (
@@ -64,12 +80,15 @@ export class NewEvent extends Component {
               <option>P.M.</option>
             </select>
           </div>
-          <div>
-              <label>Description</label>
-              <textarea name="description" type="text"/>
-          </div>
+        </div>
         </div>
         <div>
+          <div className="inputs">
+              <label>Description</label>
+              <textarea className="desc" name="description" type="text"/>
+          </div>
+        </div>
+        <div className="startend">
           <button type="submit">Submit</button>
         </div>
         </form>

@@ -3,25 +3,30 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 
 export class Day extends Component {
-  constructor(props){
-    super(props)
-  }
-
   render() {
     return(
       <div className="singleDay">
-        <h4>{this.props.number}</h4>
+        <h4 className="date">{this.props.number}</h4>
         <div>
-        {
-          this.props.events.map((event) => (
-            <div key={event.id}>
-              <Link to={`/${event.month}/${event.day}/${event.id}`}>{event.name}</Link>
-            </div>
-          ))
-        }
-        <Link to={`/${this.props.month}/${this.props.number}/newEvent`}>
-          <button>+</button>
-        </Link>
+          <div className="eventList">
+          {
+            this.props.am.sort((a, b) => (a.startTime > b.startTime) ? 1 : ((b.startTime > a.startTime) ? -1 : 0)).map((event) => (
+              <div key={event.id}>
+                <Link className="eventLink" to={`/${event.month}/${event.day}/${event.id}`}>{event.startTime} {event.name}</Link>
+              </div>
+            ))
+          }
+          {
+            this.props.pm.sort((a, b) => (a.startTime > b.startTime) ? 1 : ((b.startTime > a.startTime) ? -1 : 0)).map((event) => (
+              <div key={event.id}>
+                <Link className="eventLink" to={`/${event.month}/${event.day}/${event.id}`}>{event.startTime} {event.name}</Link>
+              </div>
+            ))
+          }
+          </div>
+          <div className="add">
+            <Link  className="addButton" to={`/${this.props.month}/${this.props.number}/newEvent`}>+</Link>
+          </div>
         </div>
       </div>
     )
