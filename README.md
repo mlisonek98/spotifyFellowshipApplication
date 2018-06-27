@@ -10,10 +10,16 @@ All the days of the week hovering over each column are in the correct order for 
 
 Have too many events on one day? The UI of this application handles that, so don't worry.
 
-to run app, clone into repo
-then npm install
-createdb spotifyCalendar
-createdb spotifyCalendar-test
+To run app, clone into repo
+
+Then npm install
+
+Createdb spotifyCalendar
+
+Createdb spotifyCalendar-test
+
 npm run seed
-and finally npm run start-dev
+
+Finally npm run start-dev
+
 Enjoy the application!
