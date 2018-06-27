@@ -1,7 +1,7 @@
 'use strict'
 
-const db = require('../server/db')
-const {Event} = require('../server/db/models')
+const db = require('../CalendarBackEnd/db')
+const {Event} = require('../CalendarBackEnd/db/models')
 
 async function seed() {
   await db.sync({force: true})

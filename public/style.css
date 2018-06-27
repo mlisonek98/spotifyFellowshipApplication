@@ -26,6 +26,10 @@ html, body {
   height: 121px;
 }
 
+.nav h1 {
+  font-size: 60px;
+}
+
 .month {
   margin-bottom: 0;
 }
