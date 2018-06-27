@@ -30,7 +30,6 @@ export class EditEvent extends Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <div className="form-wrapper">
         <div className="otherheader">

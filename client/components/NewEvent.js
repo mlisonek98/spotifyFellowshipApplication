@@ -97,7 +97,6 @@ export class NewEvent extends Component {
 }
 
 const mapState = (ownProps) => {
-  console.log(ownProps)
   return {
     time: [
       '12:00',

@@ -54,7 +54,6 @@ export class SingleEvent extends Component {
 }
 
 const mapState = ({events}, ownProps) => {
-  console.log(ownProps)
   return {
     event: events.filter((event) => {
       return ((event.id + '') === ownProps.match.params.id)
