@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+#app {
+  font-family: Ubuntu, sans-serif;
+}
+
 html, body {
   margin: 0px;
   padding: 0px;
@@ -96,10 +102,6 @@ html, body {
 .addButton:hover {
   transform: scale(1.2);
 }
-.eventLink:hover {
-  text-decoration: none;
-  color: darkgrey;
-}
 
 .date {
   margin-top: 0px;
@@ -136,7 +138,7 @@ outline: 1px solid slategrey;
   margin-bottom: 0px;
 }
 
-/* From Styles */
+/* Form Styles */
 
 .form-wrapper {
   display: flex;
@@ -209,6 +211,7 @@ outline: 1px solid slategrey;
 .form-wrapper button:hover {
   background-color: whitesmoke;
   color: black;
+  transform: scale(1.2);
 }
 
 /* Single Event Styles */
@@ -295,5 +298,6 @@ outline: 1px solid slategrey;
 .eventButtons button:hover {
   background-color: whitesmoke;
   color: black;
+  transform: scale(1.2);
 }
 
