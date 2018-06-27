@@ -14,7 +14,7 @@ export class SingleEvent extends Component {
     event.preventDefault()
     this.props.history.push(`/${this.props.match.params.month}`)
   }
-
+  //deletes event through sending axios request to backend
   deleteEvent() {
     this.props.delete(this.props.event[0].id)
     this.props.history.push(`/${this.props.match.params.month}`)

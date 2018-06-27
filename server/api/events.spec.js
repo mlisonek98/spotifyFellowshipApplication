@@ -4,6 +4,8 @@ const db = require('../db')
 const app = require('../index')
 const Event = db.model('event')
 
+//tests using supertest to make sure routes work correctly
+
 describe('Event routes', () => {
   beforeEach(() => {
     return db.sync({force: true})

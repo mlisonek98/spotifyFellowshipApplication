@@ -14,7 +14,6 @@
     "lint-fix": "npm run lint -- --fix",
     "precommit": "# lint-staged # un-comment to enable",
     "prettify": "prettier --write \"**/*.{js,jsx,json,css,scss,md}\"",
-    "postinstall": "touch secrets.js",
     "seed": "node script/seed.js",
     "start": "node server",
     "start-dev": "NODE_ENV='development' npm run build-client-watch & npm run start-server",
@@ -32,8 +31,7 @@
       "git add"
     ]
   },
-  "author": "Fullstack Academy of Code",
-  "license": "MIT",
+  "author": "Marko Lisonek",
   "dependencies": {
     "axios": "^0.15.3",
     "body-parser": "^1.16.1",
@@ -44,8 +42,6 @@
     "express-session": "^1.15.1",
     "history": "^4.6.3",
     "morgan": "^1.8.1",
-    "passport": "^0.3.2",
-    "passport-google-oauth": "^1.0.0",
     "pg": "^6.1.2",
     "pg-hstore": "^2.3.2",
     "prop-types": "^15.5.8",
@@ -57,7 +53,6 @@
     "redux-logger": "^2.8.1",
     "redux-thunk": "^2.2.0",
     "sequelize": "^4.3.1",
-    "socket.io": "^2.0.3",
     "url-loader": "^1.0.1"
   },
   "devDependencies": {

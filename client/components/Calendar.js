@@ -3,6 +3,8 @@ import {connect} from 'react-redux'
 import {Day} from './Day'
 import '../../public/style.css'
 
+
+//root component
 export class Calendar extends Component {
   constructor(props) {
     super(props)
@@ -10,6 +12,8 @@ export class Calendar extends Component {
     this.nextMonth = this.nextMonth.bind(this)
   }
 
+
+  //previousmonth() and nextmonth() are necessary for cycling through months
   previousMonth(event){
     event.preventDefault()
     let prevMonth;
@@ -48,6 +52,7 @@ export class Calendar extends Component {
         <div className="calendar">
           <div className="weekday">
             {
+              //here I map over the days of the week depending on what the current month is, this way the proper day is always over the proper date
               this.props.daysOfWeek[this.props.currentMonth].map((day) => (
                 <div key={day}>
                   <h3>{day}</h3>
@@ -57,7 +62,9 @@ export class Calendar extends Component {
           </div>
           <div className="day">
           {
+            //here I map over the current month array returning a day component for the number of days in that month
             this.props.months[this.props.currentMonth].map((day) => {
+              //am and pm are props being passed down to divide morning events and afternoon events. this is necessary for sorting them
               return <Day key={day} number={day} month={this.props.currentMonth} am={this.props.events.filter((event) => {
                 return (((event.month === this.props.currentMonth) && (event.day === day) && (event.startTime.includes('A.M.'))))
               })} pm={this.props.events.filter((event) => {
@@ -72,7 +79,9 @@ export class Calendar extends Component {
   }
 }
 
+
 const mapState = ({events}, ownProps) => {
+  //here I am mapping the current month to the state based off of the params, as well as an object of months and their number of days and days of the week in order of 2018
   return {
     currentMonth: ownProps.match.params.month,
     months: {

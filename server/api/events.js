@@ -2,6 +2,8 @@ const router = require('express').Router()
 const {Event} = require('../db/models')
 module.exports = router
 
+
+//api routes for events include GET/POST/PUT/DELETE
 router.get('/', async (req, res, next) => {
   try {
     const events = await Event.findAll()
@@ -28,7 +30,6 @@ router.put('/:id', async (req, res, next) => {
       },
       returning: true
     })
-    console.log('UPDATED EVENT',updatedEvent)
     res.status(202).json(updatedEvent[1][0])
   } catch(err) {
     next(err)

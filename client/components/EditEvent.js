@@ -14,7 +14,7 @@ export class EditEvent extends Component {
     this.props.history.push(`/${this.props.match.params.month}/${this.props.match.params.day}/${this.props.match.params.id}`)
   }
 
-
+  //submit function takes values from the form's input fields and sends them to the store and backend via axios
   submit(event) {
     event.preventDefault();
     let eventInfo = {
@@ -43,7 +43,7 @@ export class EditEvent extends Component {
         <form onSubmit={this.submit}>
         <div className="inputs">
           <label>Name</label>
-          <input className="name" name="name" type="text" />
+          <input required maxLength="10" className="name" name="name" type="text" />
         </div>
         <div className="inputs">
           <div className="startend">
@@ -86,7 +86,7 @@ export class EditEvent extends Component {
           <div>
             <div className="inputs">
               <label>Description</label>
-              <textarea className="desc"  name="description" type="text"/>
+              <textarea required className="desc"  name="description" type="text"/>
           </div>
         </div>
         <div className="startend">

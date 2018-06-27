@@ -2,6 +2,7 @@ const {expect} = require('chai')
 const db = require('../index')
 const Event = db.model('event')
 
+//testing to make sure model schema was constructed properly using chai
 describe('Event model', () => {
   beforeEach(() => {
     return db.sync({force: true})

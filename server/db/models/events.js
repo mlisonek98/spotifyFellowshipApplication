@@ -1,6 +1,8 @@
 const Sequelize = require('sequelize')
 const db = require('../db')
 
+//model for single event
+
 const Event = db.define('event', {
   name: {
     type: Sequelize.STRING(10),
