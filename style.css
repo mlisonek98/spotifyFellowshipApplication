@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+#app {
+  font-family: Ubuntu, sans-serif;
+}
+
+html, body {
+  margin: 0px;
+  padding: 0px;
+  border: 0px
+}
+/* Styles for Whole Calendar */
+.calendar {
+  margin-left: 40px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+/* Styles for header */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  background-color: black;
+  color: whitesmoke;
+  height: 121px;
+}
+
+.nav h1 {
+  font-size: 60px;
+}
+
+.month {
+  margin-bottom: 0;
+}
+
+.backbutton {
+  height: 70px;
+  width: 70px;
+  margin-top: 20px;
+  margin-left: 10px;
+  border: 1.7px solid whitesmoke;
+  color: whitesmoke;
+  background-color: black;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.backbutton:hover {
+  color: black;
+  background-color: whitesmoke;
+  transform: scale(1.2);
+}
+.nextbutton {
+  height: 70px;
+  width: 70px;
+  margin-top: 20px;
+  margin-right: 10px;
+  border: 1.7px solid whitesmoke;
+  color: whitesmoke;
+  background-color: black;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.nextbutton:hover {
+  color: black;
+  background-color: whitesmoke;
+  transform: scale(1.2);
+}
+
+/* Styles for Day.js */
+.day {
+  display: inline-grid;
+  grid-template-rows: 160px 160px 160px 160px 160px;
+  grid-template-columns: 160px 160px 160px 160px 160px 160px 160px;
+  grid-gap: 3px;
+  margin-top: 0px;
+  padding-bottom: 20px;
+}
+
+.singleDay {
+  border: 2px solid black;
+  color: black;
+  background-color: white;
+  transition: .25s ease-in-out;
+}
+.singleDay:hover {
+  filter: invert(1);
+}
+
+.addButton {
+  text-decoration: none;
+  color: black;
+  height:30px;
+  width: 30px;
+  font-size: 20px;
+  border: 1.7px solid black;
+  color: black;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.3s;
+  overflow: hidden;
+}
+
+.addButton:hover {
+  transform: scale(1.2);
+}
+
+.date {
+  margin-top: 0px;
+}
+.eventList::-webkit-scrollbar {
+  width: 7px;
+}
+
+.eventList::-webkit-scrollbar-thumb {
+background-color: darkgrey;
+outline: 1px solid slategrey;
+}
+
+.eventList {
+  height: 85px;
+  text-align: center;
+  overflow: scroll;
+
+}
+.eventLink {
+  text-decoration: none;
+  color: black;
+}
+.eventLink:hover {
+  text-decoration: none;
+  color: darkgrey;
+}
+/* Styles for days of week */
+.weekday {
+  display: inline-grid;
+  grid-template-columns: 160px 160px 160px 160px 160px 160px 160px;
+  text-align: center;
+  margin-top: 5em;
+  margin-bottom: 0px;
+}
+
+/* Form Styles */
+
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.form-wrapper form {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  border: 2.2px solid black;
+  border-radius: 4px;
+  width: 700px;
+  margin-top: 50px;
+}
+
+.navheader {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  background-color: #141210;
+  color: whitesmoke;
+  height: 121px;
+  width: 100vw;
+}
+.header {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputs label {
+  margin-top: 15px;
+}
+
+.startend {
+  margin-top: 15px;
+}
+
+.desc {
+  height: 100px;
+  width: 400px;
+  border: 2px solid black;
+  border-radius: 4px;
+}
+
+.name {
+  width: 100px;
+  border: 2px solid black;
+  border-radius: 4px;
+}
+.form-wrapper button {
+  background-color: black;
+  color: white;
+  width: 9em;
+  border-radius: 4px;
+  height: 36px;
+  transition: 0.3s;
+  border: 1px solid black;
+}
+.form-wrapper button:hover {
+  background-color: whitesmoke;
+  color: black;
+  transform: scale(1.2);
+}
+
+/* Single Event Styles */
+
+.singleEventWrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.otherheader {
+  text-align: center;
+  background-color: #141210;
+  color: whitesmoke;
+  height: 121px;
+  width: 100vw;
+}
+
+.otherheader button {
+  top: 26px;
+  right: 1143px;
+  height: 70px;
+  width: 70px;
+  position: absolute;
+  border: 1.7px solid whitesmoke;
+  color: whitesmoke;
+  background-color: black;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.otherheader button:hover {
+  color: black;
+  background-color: whitesmoke;
+  transform: scale(1.2);
+}
+
+.headertext {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.eventinfo {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 15px;
+  border: 2.2px solid black;
+  border-radius: 4px;
+  width: 700px;
+  margin-top: 50px;
+}
+
+.eventDesc {
+  font-size: 20px;
+  margin-bottom: 40px;
+}
+
+.eventStartEnd {
+  font-size: 30px;
+}
+
+.eventButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 400px;
+}
+.eventButtons button {
+  background-color: black;
+  color: white;
+  width: 9em;
+  border-radius: 4px;
+  height: 36px;
+  transition: 0.3s;
+  border: 1px solid black;
+}
+
+.eventButtons button:hover {
+  background-color: whitesmoke;
+  color: black;
+  transform: scale(1.2);
+}
+
