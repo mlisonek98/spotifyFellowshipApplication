@@ -2,6 +2,7 @@ const {expect} = require('chai')
 const db = require('../index')
 const Event = db.model('event')
 
+//testing to make sure model schema was constructed properly using chai
 describe('Event model', () => {
   beforeEach(() => {
     return db.sync({force: true})
@@ -14,9 +15,8 @@ describe('Event model', () => {
       beforeEach(async () => {
         barber = await Event.create({
           name: 'barber',
-          startTime: 3.00,
-          endTime: 3.30,
-          AMPM: 'P.M.',
+          startTime: '3:00 P.M.',
+          endTime: '3:30 P.M.',
           description: 'Gotta go get my haircut at th barber',
           day: 21,
           month: 'July'
@@ -24,14 +24,11 @@ describe('Event model', () => {
       })
 
       it('correctly adds start time of event', () => {
-        expect(barber.startTime).to.be.equal(3.00)
+        expect(barber.startTime).to.be.equal('3:00 P.M.')
       })
 
       it('correctly adds end time of event', () => {
-        expect(barber.endTime).to.be.equal(3.30)
-      })
-      it('correctly adds A.M. or P.M. to event', () => {
-        expect(barber.AMPM).to.be.equal('P.M.')
+        expect(barber.endTime).to.be.equal('3:30 P.M.')
       })
       it('correctly adds name and description of event', () => {
         expect(barber.name).to.be.equal('barber')

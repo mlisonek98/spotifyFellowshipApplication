@@ -1,6 +1,8 @@
 const Sequelize = require('sequelize')
 const pkg = require('../../package.json')
 
+
+//this lets database change name based off what project is called and if its a test or not
 const databaseName = pkg.name + (process.env.NODE_ENV === 'test' ? '-test' : '')
 
 const db = new Sequelize(
