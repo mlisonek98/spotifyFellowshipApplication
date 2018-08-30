@@ -10,6 +10,10 @@ All the days of the week hovering over each column are in the correct order for 
 
 Have too many events on one day? The UI of this application handles that, so don't worry.
 
+You Can See The Application Live At : https://spotifycalendar2018.herokuapp.com/
+
+OR
+
 To run app, clone into repo
 
 Then npm install
